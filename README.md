@@ -10,7 +10,7 @@ If you want to use the `connect` functionality you need to have also OpenVPN ins
 
 ## Usage
 
-`./vpn connect|find \'country\' [\'service\']`
+`./vpn connect|find [country] [service]`
 
 ## Help
 
