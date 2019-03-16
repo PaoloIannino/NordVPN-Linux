@@ -18,7 +18,7 @@ def connect(server):
 def help():
     print('*** COUNTRIES ***'); [print(item, end = ', ') for item in get('servers_countries').keys()]; print('\n')
     print('*** SERVICES ***'); [print(item, end = ', ') for item in get('servers_groups').keys()]; print('\n')
-    print('*** USAGE ***'); print('./vpn \'country\' connect|find [\'service\']'); return print()
+    print('*** USAGE ***'); print('./vpn connect|find \'country\' [\'service\']'); return print()
     print('')
 
 def menu(args):

@@ -8,6 +8,14 @@ You need to have python3 and OpenVPN installed on your machine. Just the python 
 
 OpenVPN must then be set up for NordVPN, for this you can look [here](https://nordvpn.com/tutorials/linux/openvpn)
 
+## Usage
+
+`./vpn connect|find \'country\' [\'service\']`
+
+## Help
+
+`./vpn`
+
 ## Authors
 
 [Paolo Iannino](https://github.com/PaoloIannino)
