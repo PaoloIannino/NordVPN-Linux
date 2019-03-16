@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+import sys, requests, operator, subprocess
+
+get = lambda list_name: {item['name']:item['id'] for item in
+        requests.get('http://nordvpn.com/wp-admin/admin-ajax.php',params = {'action': list_name}).json()}
+
+def best_server(country = 'Taiwan', type = 'Standard VPN'):
+    data = requests.get('http://nordvpn.com/wp-admin/admin-ajax.php',
+        params = {'action': 'servers_recommendations',
+        'filters': '{"country_id":' + str(get('servers_countries')[country]) +
+        ',"servers_groups":' + str(get('servers_groups')[type]) + '}'}).json()
+    return sorted({item['hostname']:item['load'] for item in data}.items(), key=operator.itemgetter(1))[0][0]
+
+def connect(server):
+    print('Connecting to ' + server + ' ...')
+    subprocess.call(['sudo', 'openvpn', '/etc/openvpn/ovpn_tcp/' + server + '.tcp.ovpn'])
+
+def help():
+    print('*** COUNTRIES ***'); [print(item, end = ', ') for item in get('servers_countries').keys()]; print('\n')
+    print('*** SERVICES ***'); [print(item, end = ', ') for item in get('servers_groups').keys()]; print('\n')
+    print('*** USAGE ***'); print('./vpn \'country\' connect|find [\'service\']'); return print()
+    print('')
+
+def menu(args):
+    if len(args) > 1 and args[1] == 'connect':
+        if len(args) == 4: return connect(best_server(country = args[2], type = args[3]));
+        if len(args) == 3: return connect(best_server(country = args[2]))
+        if len(args) == 2: return connect(best_server())
+    if len(args) > 1 and args[1] == 'find':
+        if len(args) == 4: return print(best_server(country = args[2], type = args[3]));
+        if len(args) == 3: return print(best_server(country = args[2]))
+        if len(args) == 2: return print(best_server())
+    return help()
+
+def main(): return menu(sys.argv)
+
+if __name__ == '__main__': main()
