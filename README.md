@@ -1,6 +1,6 @@
 # NordVPN Linux Client
 
-A simple python command-line client for NordVPN. It allows you to discover which servers and types of VPN are available. In addition it provides you the best server for each country and/or type of VPN. Mostly motivated by the absence of NordVPN official clients for Linux distributions.
+A minimal python command-line client for NordVPN. It allows you to discover which servers and types of VPN are available. In addition it provides you the best server for each country and/or type of VPN. All of this is done in 38 lines of python with no external dependencies except the standard python library.
 
 ## Getting Started
 
