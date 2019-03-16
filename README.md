@@ -6,15 +6,11 @@ A simple python command-line client. Mostly motivated by the absence of official
 
 You need to have python3 and OpenVPN installed on your machine. Just the python standard library is used.
 
-OpenVPN must then be set up for NordVPN, for this you can look * [here](https://nordvpn.com/tutorials/linux/openvpn/()
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+OpenVPN must then be set up for NordVPN, for this you can look [here](https://nordvpn.com/tutorials/linux/openvpn/()
 
 ## Authors
 
-* [Paolo Iannino](https://github.com/PaoloIannino)
+[Paolo Iannino](https://github.com/PaoloIannino)
 
 ## License
 
